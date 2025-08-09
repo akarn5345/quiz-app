@@ -6,135 +6,191 @@
   <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
   <title>15-Question Quiz</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    .question { margin-bottom: 20px; }
-    .result { margin-top: 20px; font-weight: bold; }
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7fa;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 800px;
+      width: 100%;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    .question {
+      margin-bottom: 15px;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+    .question p {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+    button {
+      display: inline-block;
+      width: 200px;
+      padding: 10px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #27ae60;
+    }
   </style>
 </head>
 <body>
-  <h1>15-Question Quiz</h1>
-  <form id="quizForm" onsubmit="checkAnswers(event)">
-    <div class="question">
-      <p>1. What is 2 + 2?</p>
-      <input type="radio" name="q1" value="3"> 3<br>
-      <input type="radio" name="q1" value="4"> 4<br>
-      <input type="radio" name="q1" value="5"> 5<br>
-    </div>
-    <div class="question">
-      <p>2. What is the capital of France?</p>
-      <input type="radio" name="q2" value="Paris"> Paris<br>
-      <input type="radio" name="q2" value="London"> London<br>
-      <input type="radio" name="q2" value="Berlin"> Berlin<br>
-    </div>
-    <div class="question">
-      <p>3. Which planet is known as the Red Planet?</p>
-      <input type="radio" name="q3" value="Mars"> Mars<br>
-      <input type="radio" name="q3" value="Jupiter"> Jupiter<br>
-      <input type="radio" name="q3" value="Venus"> Venus<br>
-    </div>
-    <div class="question">
-      <p>4. What is 5 x 3?</p>
-      <input type="radio" name="q4" value="10"> 10<br>
-      <input type="radio" name="q4" value="15"> 15<br>
-      <input type="radio" name="q4" value="20"> 20<br>
-    </div>
-    <div class="question">
-      <p>5. Which animal is known as man's best friend?</p>
-      <input type="radio" name="q5" value="Cat"> Cat<br>
-      <input type="radio" name="q5" value="Dog"> Dog<br>
-      <input type="radio" name="q5" value="Bird"> Bird<br>
-    </div>
-    <div class="question">
-      <p>6. What is the largest ocean?</p>
-      <input type="radio" name="q6" value="Atlantic"> Atlantic<br>
-      <input type="radio" name="q6" value="Indian"> Indian<br>
-      <input type="radio" name="q6" value="Pacific"> Pacific<br>
-    </div>
-    <div class="question">
-      <p>7. Which month has 28 days?</p>
-      <input type="radio" name="q7" value="February"> February<br>
-      <input type="radio" name="q7" value="April"> April<br>
-      <input type="radio" name="q7" value="June"> June<br>
-    </div>
-    <div class="question">
-      <p>8. What is the boiling point of water?</p>
-      <input type="radio" name="q8" value="90°C"> 90°C<br>
-      <input type="radio" name="q8" value="100°C"> 100°C<br>
-      <input type="radio" name="q8" value="110°C"> 110°C<br>
-    </div>
-    <div class="question">
-      <p>9. Which color is not in the rainbow?</p>
-      <input type="radio" name="q9" value="Red"> Red<br>
-      <input type="radio" name="q9" value="Brown"> Brown<br>
-      <input type="radio" name="q9" value="Blue"> Blue<br>
-    </div>
-    <div class="question">
-      <p>10. What gas do plants absorb from the atmosphere?</p>
-      <input type="radio" name="q10" value="Oxygen"> Oxygen<br>
-      <input type="radio" name="q10" value="Carbon Dioxide"> Carbon Dioxide<br>
-      <input type="radio" name="q10" value="Nitrogen"> Nitrogen<br>
-    </div>
-    <div class="question">
-      <p>11. Which sport uses a shuttlecock?</p>
-      <input type="radio" name="q11" value="Tennis"> Tennis<br>
-      <input type="radio" name="q11" value="Badminton"> Badminton<br>
-      <input type="radio" name="q11" value="Soccer"> Soccer<br>
-    </div>
-    <div class="question">
-      <p>12. What is 10 divided by 2?</p>
-      <input type="radio" name="q12" value="3"> 3<br>
-      <input type="radio" name="q12" value="5"> 5<br>
-      <input type="radio" name="q12" value="7"> 7<br>
-    </div>
-    <div class="question">
-      <p>13. Which instrument has black and white keys?</p>
-      <input type="radio" name="q13" value="Guitar"> Guitar<br>
-      <input type="radio" name="q13" value="Piano"> Piano<br>
-      <input type="radio" name="q13" value="Drums"> Drums<br>
-    </div>
-    <div class="question">
-      <p>14. What is the main source of energy for Earth?</p>
-      <input type="radio" name="q14" value="Moon"> Moon<br>
-      <input type="radio" name="q14" value="Sun"> Sun<br>
-      <input type="radio" name="q14" value="Wind"> Wind<br>
-    </div>
-    <div class="question">
-      <p>15. Which fruit is known for its yellow peel?</p>
-      <input type="radio" name="q15" value="Apple"> Apple<br>
-      <input type="radio" name="q15" value="Banana"> Banana<br>
-      <input type="radio" name="q15" value="Orange"> Orange<br>
-    </div>
-    <button type="submit">Submit Quiz</button>
-  </form>
-  <div class="result" id="result"></div>
+  <div class="container">
+    <h1>15-Question Quiz</h1>
+    <form id="quizForm" onsubmit="checkAnswers(event)">
+      <div class="question">
+        <p>1. What is 2 + 2?</p>
+        <input type="radio" name="q1" value="3"> 3<br>
+        <input type="radio" name="q1" value="4"> 4<br>
+        <input type="radio" name="q1" value="5"> 5<br>
+      </div>
+      <div class="question">
+        <p>2. What is the capital of France?</p>
+        <input type="radio" name="q2" value="Paris"> Paris<br>
+        <input type="radio" name="q2" value="London"> London<br>
+        <input type="radio" name="q2" value="Berlin"> Berlin<br>
+      </div>
+      <div class="question">
+        <p>3. Which planet is known as the Red Planet?</p>
+        <input type="radio" name="q3" value="Mars"> Mars<br>
+        <input type="radio" name="q3" value="Jupiter"> Jupiter<br>
+        <input type="radio" name="q3" value="Venus"> Venus<br>
+      </div>
+      <div class="question">
+        <p>4. What is 5 x 3?</p>
+        <input type="radio" name="q4" value="10"> 10<br>
+        <input type="radio" name="q4" value="15"> 15<br>
+        <input type="radio" name="q4" value="20"> 20<br>
+      </div>
+      <div class="question">
+        <p>5. Which animal is known as man's best friend?</p>
+        <input type="radio" name="q5" value="Cat"> Cat<br>
+        <input type="radio" name="q5" value="Dog"> Dog<br>
+        <input type="radio" name="q5" value="Bird"> Bird<br>
+      </div>
+      <div class="question">
+        <p>6. What is the largest ocean?</p>
+        <input type="radio" name="q6" value="Atlantic"> Atlantic<br>
+        <input type="radio" name="q6" value="Indian"> Indian<br>
+        <input type="radio" name="q6" value="Pacific"> Pacific<br>
+      </div>
+      <div class="question">
+        <p>7. Which month has 28 days?</p>
+        <input type="radio" name="q7" value="February"> February<br>
+        <input type="radio" name="q7" value="April"> April<br>
+        <input type="radio" name="q7" value="June"> June<br>
+      </div>
+      <div class="question">
+        <p>8. What is the boiling point of water?</p>
+        <input type="radio" name="q8" value="90°C"> 90°C<br>
+        <input type="radio" name="q8" value="100°C"> 100°C<br>
+        <input type="radio" name="q8" value="110°C"> 110°C<br>
+      </div>
+      <div class="question">
+        <p>9. Which color is not in the rainbow?</p>
+        <input type="radio" name="q9" value="Red"> Red<br>
+        <input type="radio" name="q9" value="Brown"> Brown<br>
+        <input type="radio" name="q9" value="Blue"> Blue<br>
+      </div>
+      <div class="question">
+        <p>10. What gas do plants absorb from the atmosphere?</p>
+        <input type="radio" name="q10" value="Oxygen"> Oxygen<br>
+        <input type="radio" name="q10" value="Carbon Dioxide"> Carbon Dioxide<br>
+        <input type="radio" name="q10" value="Nitrogen"> Nitrogen<br>
+      </div>
+      <div class="question">
+        <p>11. Which sport uses a shuttlecock?</p>
+        <input type="radio" name="q11" value="Tennis"> Tennis<br>
+        <input type="radio" name="q11" value="Badminton"> Badminton<br>
+        <input type="radio" name="q11" value="Soccer"> Soccer<br>
+      </div>
+      <div class="question">
+        <p>12. What is 10 divided by 2?</p>
+        <input type="radio" name="q12" value="3"> 3<br>
+        <input type="radio" name="q12" value="5"> 5<br>
+        <input type="radio" name="q12" value="7"> 7<br>
+      </div>
+      <div class="question">
+        <p>13. Which instrument has black and white keys?</p>
+        <input type="radio" name="q13" value="Guitar"> Guitar<br>
+        <input type="radio" name="q13" value="Piano"> Piano<br>
+        <input type="radio" name="q13" value="Drums"> Drums<br>
+      </div>
+      <div class="question">
+        <p>14. What is the main source of energy for Earth?</p>
+        <input type="radio" name="q14" value="Moon"> Moon<br>
+        <input type="radio" name="q14" value="Sun"> Sun<br>
+        <input type="radio" name="q14" value="Wind"> Wind<br>
+      </div>
+      <div class="question">
+        <p>15. Which fruit is known for its yellow peel?</p>
+        <input type="radio" name="q15" value="Apple"> Apple<br>
+        <input type="radio" name="q15" value="Banana"> Banana<br>
+        <input type="radio" name="q15" value="Orange"> Orange<br>
+      </div>
+      <button type="submit">Submit Quiz</button>
+    </form>
+    <div class="result" id="result"></div>
 
-  <script>
-    function checkAnswers(event) {
-      event.preventDefault();
-      let score = 0;
-      const answers = {
-        q1: "4",
-        q2: "Paris",
-        q3: "Mars",
-        q4: "15",
-        q5: "Dog",
-        q6: "Pacific",
-        q7: "February",
-        q8: "100°C",
-        q9: "Brown",
-        q10: "Carbon Dioxide",
-        q11: "Badminton",
-        q12: "5",
-        q13: "Piano",
-        q14: "Sun",
-        q15: "Banana"
-      };
-      for (let q in answers) {
-        const selected = document.querySelector(`input[name="${q}"]:checked`);
-        if (selected && selected.value === answers[q]) score++;
+    <script>
+      function checkAnswers(event) {
+        event.preventDefault();
+        let score = 0;
+        const answers = {
+          q1: "4",
+          q2: "Paris",
+          q3: "Mars",
+          q4: "15",
+          q5: "Dog",
+          q6: "Pacific",
+          q7: "February",
+          q8: "100°C",
+          q9: "Brown",
+          q10: "Carbon Dioxide",
+          q11: "Badminton",
+          q12: "5",
+          q13: "Piano",
+          q14: "Sun",
+          q15: "Banana"
+        };
+        for (let q in answers) {
+          const selected = document.querySelector(`input[name="${q}"]:checked`);
+          if (selected && selected.value === answers[q]) score++;
+        }
+        document.getElementById("result").innerText = `Your score: ${score} out of 15`;
       }
-      document.getElementById("result").innerText = `Your score: ${score} out of 15`;
-    }
-  </script>
+    </script>
+  </div>
 </body>
 </html>
